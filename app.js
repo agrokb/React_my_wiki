@@ -1,11 +1,14 @@
-console.log("React:",React)
-console.log("ReactDOM",ReactDOM)
+class MyHead extends React.Component{
+    render(){
+        return React.createElement("H1",null,"Hello Conponent");
+    }
+}
+
+
 window.addEventListener("load",() =>{
 
-  let reactElement = React.createElement("H1",null,"Hello World");
-
-  ReactDOM.render(
-      reactElement, document.body
-  );
+  let myComponent = React.createElement(MyHead,null);
+  
+  ReactDOM.render(myComponent,document.body)
 
 })
