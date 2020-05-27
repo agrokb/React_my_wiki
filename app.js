@@ -1,13 +1,24 @@
 class MyHead extends React.Component{
     render(){
-        return React.createElement("H1",null,"Hello Conponent");
+        console.log(this.props.level)
+        return React.createElement("h"+this.props.level,null,"Hello Conponent");
     }
 }
-
+class MyHeadList extends React.Component{
+  render(){
+    let heads = [];
+    let head;
+    for(let i=1;i<6;i++){
+      head = React.createElement(MyHead,{level:i});
+      heads.push(head)
+    }
+    return React.createElement("DIV",null,heads)
+  }
+}
 
 window.addEventListener("load",() =>{
 
-  let myComponent = React.createElement(MyHead,null);
+  let myComponent = React.createElement(MyHeadList,null);
   
   ReactDOM.render(myComponent,document.body)
 
